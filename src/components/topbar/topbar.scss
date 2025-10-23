@@ -1,0 +1,123 @@
+@use "../../global.scss" as *;
+
+.topbar {
+  width: 100%;
+  height: 68px;
+  background-color: #ffffff;
+  color: $mainColor;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  .topbar__wrapper {
+    padding: 12px 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+
+    .topbar__info {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      .topbar__logo {
+        font-size: 36px;
+        font-weight: 700;
+        text-decoration: none;
+        font-style: italic;
+        color: inherit;
+        margin-right: 16px;
+      }
+
+      .topbar__item_container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .icon {
+          font-size: 18px;
+        }
+
+        span {
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+
+      @media (max-width: $breakpoint-md) {
+        .topbar__item_container {
+          display: none;
+        }
+      }
+    }
+
+    .hamburguer {
+      width: 28px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+
+      span {
+        width: 100%;
+        height: 3px;
+        background-color: $mainColor;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        position: absolute;
+
+        &:first-child {
+          top: 0;
+        }
+        &:nth-child(2) {
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        &:last-child {
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &.active {
+    background-color: $mainColor;
+    color: #ffffff;
+
+    .hamburguer {
+      span {
+        &:first-child {
+          background-color: #ffffff;
+          transform: rotate(45deg);
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          background-color: #ffffff;
+          transform: rotate(-45deg);
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
+    }
+  }
+}

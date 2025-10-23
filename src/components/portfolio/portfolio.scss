@@ -1,0 +1,96 @@
+@use "../../global.scss" as *;
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  padding: 0 24px;
+  margin: 0 auto;
+  padding-bottom: 28px;
+  position: relative;
+
+  h2 {
+    font-size: 30px;
+    margin: 0;
+  }
+
+  nav {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .portfolio__container {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .portfolio__item {
+      width: 130px;
+      height: 100px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.5s ease;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        opacity: 1;
+        transition: all 0.5s ease;
+      }
+
+      h3 {
+        position: absolute;
+        color: #fff;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: $mainColor;
+        img {
+          opacity: 0.2;
+          z-index: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio {
+    h2 {
+      font-size: 50px;
+      margin-top: 12px;
+    }
+
+    nav {
+      gap: 20px;
+
+      span {
+      }
+    }
+
+    .portfolio__container {
+      width: 75%;
+
+      .portfolio__item {
+        width: 220px;
+        height: 150px;
+      }
+    }
+  }
+}

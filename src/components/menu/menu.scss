@@ -1,0 +1,73 @@
+@use "../../global.scss" as *;
+
+.menu {
+  width: 300px;
+  height: calc(100vh - 68px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  position: fixed;
+  z-index: 2;
+  top: 68px;
+  right: -300px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+
+  &.active {
+    background-color: $mainColor;
+    right: 0;
+  }
+
+  .menu__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .menu__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+
+    .menu__item_container {
+      display: none;
+      align-items: center;
+      gap: 8px;
+
+      .icon {
+        font-size: 18px;
+      }
+
+      span {
+        font-size: 15px;
+        font-weight: 400;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      .menu__item_container {
+        display: flex;
+      }
+    }
+  }
+
+  a {
+    font-size: 28px;
+    text-decoration: none;
+    margin: 0 24px;
+    font-weight: 300;
+    color: #ffffff;
+    opacity: 0.6;
+    width: fit-content;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
